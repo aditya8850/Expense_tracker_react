@@ -33,18 +33,14 @@ const reducer = (state, action) => {
         expenses: updatedExpenses,
       };
     }
+   
     case 'SET_EDIT_EXPENSE': {
       return {
         ...state,
         editingExpense: payload.expense,
       };
     }
-    case 'RESET_EDIT_EXPENSE': {
-      return {
-        ...state,
-        editingExpense: null,
-      };
-    }
+    
     default:
       return state;
   }
@@ -66,7 +62,6 @@ function App() {
   // Add dispatch function for updation
   const updateExpense = (expense) => {
     dispatch({ type: 'UPDATE_EXPENSE', payload: { expense } });
-    setEditExpense(null); // Reset editing state after update
   };
   const setEditExpense = (expense) => {
     dispatch({ type: 'SET_EDIT_EXPENSE', payload: { expense } });
